@@ -36,3 +36,8 @@
 .ingredients button {
   margin: 0 0 0 10px;
 }
+
+/* dark mode */
+.create.dark {
+  color: #e4e4e4;
+}

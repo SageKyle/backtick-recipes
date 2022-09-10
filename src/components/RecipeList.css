@@ -7,6 +7,9 @@
 }
 
 .recipe-list .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: #fff;
   color: #333;
   padding: 20px;
@@ -48,4 +51,18 @@
   padding: 8px;
   border-radius: 4px;
   margin: 20px auto 0;
+}
+
+.recipe-list .recipe-steps {
+  margin-bottom: auto;
+}
+
+.recipe-list .card.dark {
+  background-color: #555;
+}
+
+.recipe-list .card.dark p,
+.recipe-list .card.dark h3,
+.card.dark .recipe-steps {
+  color: #e4e4e4;
 }

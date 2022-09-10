@@ -42,10 +42,6 @@ textarea {
   box-sizing: border-box;
 }
 
-.page-title {
-  color: #333;
-}
-
 .page-title,
 .loading,
 .error {

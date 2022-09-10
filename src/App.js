@@ -10,10 +10,13 @@ import Search from './pages/search/Search';
 
 // Styles
 import './App.css';
+import { useTheme } from './hooks/useTheme';
 
 function App() {
+  const { mode } = useTheme();
+
   return (
-    <div className="App">
+    <div className={`App ${mode}`}>
       <Router>
         <Navbar />
         <ThemeSelector />
