@@ -4,5 +4,12 @@
 }
 
 .searchbar input {
-  margin-left: 10px;
+  margin-inline: 1rem;
+}
+
+/* Media queries */
+@media screen and (max-width: 42em) {
+  .label {
+    display: none;
+  }
 }

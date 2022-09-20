@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useFetch } from '../../hooks/useFetch';
+import { projectFirestore } from '../../firebase/config';
 import { useTheme } from '../../hooks/useTheme';
 
 // Styles
@@ -8,22 +8,23 @@ import './Create.css';
 
 export default function Create() {
   const [name, setName] = useState('');
-  const [cookingSteps, setCookingSteps] = useState('');
+  const [steps, setSteps] = useState('');
   const [newIngredient, setNewIngredient] = useState('');
   const [ingredients, setIngredients] = useState([]);
   const ingredientInput = useRef(null);
   const navigate = useNavigate();
-  const { mode } = useTheme();
+  const { mode, color } = useTheme();
 
-  const { postData, data, error } = useFetch(
-    'http://localhost:3000/recipes',
-    'POST'
-  );
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    error && console.log(error);
-    postData({ name, ingredients, cookingSteps });
+    const doc = { name, ingredients, steps };
+
+    try {
+      await projectFirestore.collection('recipes').add(doc);
+      navigate('/');
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleAdd = (e) => {
@@ -37,13 +38,6 @@ export default function Create() {
     setNewIngredient('');
     ingredientInput.current.focus();
   };
-
-  // redirect the user when we get data response
-  useEffect(() => {
-    if (data) {
-      navigate('/');
-    }
-  }, [data]);
 
   return (
     <div className={`create ${mode}`}>
@@ -70,7 +64,11 @@ export default function Create() {
               value={newIngredient}
               ref={ingredientInput}
             />
-            <button className="btn" onClick={handleAdd}>
+            <button
+              className="btn"
+              style={{ backgroundColor: color }}
+              onClick={handleAdd}
+            >
               add
             </button>
           </div>
@@ -85,13 +83,15 @@ export default function Create() {
         <label>
           <span>Cooking Steps:</span>
           <textarea
-            onChange={(e) => setCookingSteps(e.target.value)}
-            value={cookingSteps}
+            onChange={(e) => setSteps(e.target.value)}
+            value={steps}
             required
           />
         </label>
 
-        <button className="btn">submit</button>
+        <button className="btn" style={{ backgroundColor: color }}>
+          submit
+        </button>
       </form>
     </div>
   );

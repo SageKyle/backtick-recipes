@@ -1,4 +1,11 @@
 .home {
-  max-width: 1200px;
-  margin: 60px auto;
+  max-width: 120rem;
+  margin: 6rem 2rem;
+}
+
+/* Media Queries */
+@media screen and (min-width: 45em) {
+  .home {
+    margin-inline: auto;
+  }
 }

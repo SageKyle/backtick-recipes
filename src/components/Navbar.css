@@ -1,13 +1,13 @@
 .navbar {
   background-color: #58249c;
-  padding: 20px;
+  padding: 2rem;
   color: #fff;
 }
 
 .navbar nav {
   display: flex;
   align-items: center;
-  max-width: 1200px;
+  max-width: 120rem;
   margin: 0 auto;
 }
 
@@ -17,13 +17,18 @@
   text-decoration: none;
 }
 
+.brand-text {
+  font-size: 1.8rem;
+}
+
 .navbar a:last-child {
   color: #fff;
   text-decoration: none;
-  margin-left: 40px;
-  padding: 8px;
+  font-size: 1.4rem;
+  margin-left: auto;
+  padding: 0.8rem;
   border: 1px solid #fff;
-  border-radius: 4px;
+  border-radius: 0.4rem;
 }
 
 .navbar a:last-child:hover {

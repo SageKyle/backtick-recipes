@@ -14,7 +14,7 @@ export default function Navbar() {
     <div className="navbar" style={{ backgroundColor: color }}>
       <nav>
         <Link to="/" className="brand">
-          <h1>Backtick Recipes</h1>
+          <h1 className="brand-text">Backtick Recipes</h1>
         </Link>
         <Searchbar />
         <Link to="/create">Create Recipes</Link>
