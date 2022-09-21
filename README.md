@@ -23,7 +23,7 @@ My initial goal for this project was to create a complete standard site with mul
 ### Links
 
 - Live Site URL: [Here](https://backtick-recipes.netlify.app/)
-- Source code URL: [Here]((https://github.com/SageKyle/backtick-recipes)
+- Source code URL: [Here](https://github.com/SageKyle/backtick-recipes)
 
 ## My process
 
